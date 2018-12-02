@@ -1,9 +1,20 @@
 pipeline {
-  agent any
+  agent {
+    docker {
+      image 'debiab'
+    }
+
+  }
   stages {
     stage('package') {
+      agent {
+        docker {
+          image 'debian'
+        }
+
+      }
       steps {
-        sh 'ls -la'
+        sh 'mvn clean package'
       }
     }
   }

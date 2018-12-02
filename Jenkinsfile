@@ -1,14 +1,9 @@
 pipeline {
-  agent {
-    docker {
-      image 'maven'
-    }
-
-  }
+  agent any
   stages {
     stage('package') {
       steps {
-        readMavenPom(file: 'pom.xml')
+        sh 'ls -la'
       }
     }
   }
